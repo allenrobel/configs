@@ -18,7 +18,7 @@ cd $ANSIBLE_COLLECTIONS_PATH/ansible_collections/cisco
 git clone https://github.com/CiscoDevNet/ansible-dcnm.git dcnm
 # Set up Python virtual environment and install dependencies in the dcnm repo
 cd $REPO_DCNM
-mkdir -p $REPO/env
+mkdir -p $REPO_DCNM/env
 cp $REPO_CONFIGS/requirements.txt $REPO_DCNM/requirements.txt
 cp $REPO_CONFIGS/constraints.txt $REPO_DCNM/constraints.txt
 cp $REPO_CONFIGS/pyproject.toml $REPO_DCNM/pyproject.toml
