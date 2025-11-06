@@ -26,8 +26,8 @@ cp $REPO_CONFIGS/uv.lock $REPO_DCNM/uv.lock
 cp $REPO_CONFIGS/pyrightconfig.json $REPO_DCNM/pyrightconfig.json
 cp $REPO_CONFIGS/env $REPO_DCNM/env/env
 cd $REPO_DCNM
-/Library/Frameworks/Python.framework/Versions/$PYTHON_VERSION/bin/python$PYTHON_VERSION -m venv .venv —-prompt dcnm
-source $REPO_DCNM/.venv/bin/activate
-source $REPO_DCNM/env/env
-pip install --upgrade pip
-pip install -r requirements.txt -c constraints.txt
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv python install 3.11
+uv pip install -r requirements.txt -c constraints.txt
+uv pip install -r test-requirements.txt
+

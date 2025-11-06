@@ -1,0 +1,59 @@
+[project]
+name = "dcnm"
+version = "3.9.1"
+description = "DCNM Ansible Collection"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ansible>=11.11.0",
+    "black>=25.9.0",
+    "isort>=6.1.0",
+    "mdformat>=1.0.0",
+    "mypy>=1.0.0",
+    "pydantic>=2.11.10",
+    "pylint>=3.3.9",
+    "pytest>=8.4.2",
+    "requests>=2.32.5",
+]
+
+[tool.black]
+line-length = 160
+
+[tool.isort]
+profile = "black"
+line_length = 160
+
+[tool.mdformat]
+wrap = 160
+
+[tool.mypy]
+plugins = ["pydantic.mypy"]
+follow_imports = "normal"
+strict_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = false
+check_untyped_defs = true
+no_implicit_reexport = false
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+
+[tool.pyright]
+include = ["plugins", "tests"]
+exclude = ["**/__pycache__", ".tox", ".venv", "venv"]
+reportMissingImports = true
+reportMissingTypeStubs = false
+pythonVersion = "3.11"
+pythonPlatform = "All"
+typeCheckingMode = "basic"
+reportPrivateUsage = false
+reportUnusedImport = false
+reportUnusedVariable = false
+reportUnnecessaryTypeIgnoreComment = true
+reportGeneralTypeIssues = false
+reportCallIssue = false
+reportArgumentType = false
+strictParameterNoneValue = false
