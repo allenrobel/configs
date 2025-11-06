@@ -42,8 +42,48 @@ source .venv/bin/activate
 source env/env
 ```
 
+By default, setup_repo.bash uses `uv sync` to install runtime dependencies only.
+There are two other sets of dependencies, described below, that are not installed
+by default.
+
+### Dependencies for testing
+
+If you want to run `pytest` and/or `pytest --cov`, install the test group, per below.
+
+```bash
+cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
+source .venv/bin/activate
+uv sync --group test
+```
+
+### Dependencies use for development
+
+If you want to run the various linters used by the DCNM Ansible Collection e.g.
+`mypy`, `black`, `isort`, `pylint`, etc, install the dev group, per below.
+
+```bash
+cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
+source .venv/bin/activate
+uv sync --group dev
+```
+
+### Installing everything
+
+If you want to install everything at once, you can do so with either of the following:
+
+```bash
+cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
+source .venv/bin/activate
+uv sync --all-groups
+
+# OR
+
+uv sync --group dev --group test
+```
+
 At this point, the DCNM Ansible Collection repository is ready to use.
-For example, to run unit tests related to the dcnm_fabric module:
+For example, to run unit tests related to the dcnm_fabric module (assuming
+you've added the testing dependencies as described above):
 
 ```bash
 cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
