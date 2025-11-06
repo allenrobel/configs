@@ -28,6 +28,5 @@ cp $REPO_CONFIGS/env $REPO_DCNM/env/env
 cd $REPO_DCNM
 curl -LsSf https://astral.sh/uv/install.sh | sh
 uv python install 3.11
-uv pip install -r requirements.txt -c constraints.txt
-uv pip install -r test-requirements.txt
-
+uv venv .venv --python 3.11 --prompt dcnm
+uv sync
