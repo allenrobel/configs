@@ -1,3 +1,0 @@
-ansible
-requests
--c constraints.txt
