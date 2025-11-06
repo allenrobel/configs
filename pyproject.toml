@@ -57,3 +57,5 @@ reportGeneralTypeIssues = false
 reportCallIssue = false
 reportArgumentType = false
 strictParameterNoneValue = false
+venvPath = "."
+venv = ".venv"

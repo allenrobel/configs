@@ -22,8 +22,8 @@ and want to understand how to do it.
 
 - pyproject.toml
   - Used by uv to install dependencies needed for the DCNM Ansible Collection (ansible, requests, pydantic, among others)
-- pyrightconfig.json
   - Used by VS Code when editing files in the DCNM Ansible Collection
+  - Used by the various linters for the DCNM Ansible Collection
 - .venv
   - source this (per below) to enable the virtual environment
 - env/env
