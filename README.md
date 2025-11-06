@@ -16,9 +16,9 @@ and want to understand how to do it.
 2. Python 3.11 (via uv) the DCNM Collection's currently-recommended Python version
 3. $HOME/repos/ansible/collections/ansible_collections/ansible/netcommon
 4. $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
-5. Adds the following to the DCNM Ansible Collection in $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
-6. uv installs files in $HOME/.local/bin/* (see bottom of this README for specifics)
-7. The setup_repo.bash script sources $HOME/.local/bin/env immediately after uv is installed
+5. uv installs files in $HOME/.local/bin/* (see bottom of this README for specifics)
+6. The setup_repo.bash script sources $HOME/.local/bin/env immediately after uv is installed
+7. The following files are added to the DCNM Ansible Collection in $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
 
 - pyproject.toml
   - Used by uv to install dependencies needed for the DCNM Ansible Collection (ansible, requests, pydantic, among others)
