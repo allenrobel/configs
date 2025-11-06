@@ -32,18 +32,18 @@ and want to understand how to do it.
 ## Installation and Usage
 
 ```bash
-cd $HOME
-mkdir repos
+mkdir -p $HOME/repos
 cd $HOME/repos
-git clone https://github.com/allenrobel/configs.git
-cd $HOME/configs/dcnm
+git clone https://github.com/allenrobel/ansible-dcnm-setup.git
+cd $HOME/ansible-dcnm-setup
 ./setup_repo.bash
 cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
 source .venv/bin/activate
 source env/env
 ```
 
-At this point, the repo is ready to use.  For example, to run unit tests related to the dcnm_fabric module:
+At this point, the DCNM Ansible Collection repository is ready to use.
+For example, to run unit tests related to the dcnm_fabric module:
 
 ```bash
 cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
@@ -55,7 +55,7 @@ pytest -k dcnm_fabric
 
 ## Files installed by uv
 
-On MacOS
+### On MacOS
 
 ```bash
 arobel@Allen-M4 ~ % ls -l $HOME/.local/bin
@@ -68,7 +68,7 @@ lrwxr-xr-x@ 1 arobel  staff        86 Nov  5 16:27 python3.11 -> /Users/arobel/.
 arobel@Allen-M4 ~ %
 ```
 
-On Ubuntu
+### On Ubuntu
 
 ```bash
 (dcnm) arobel@glide:~$ ls -l $HOME/.local/bin
