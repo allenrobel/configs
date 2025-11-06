@@ -17,6 +17,8 @@ and want to understand how to do it.
 3. $HOME/repos/ansible/collections/ansible_collections/ansible/netcommon
 4. $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
 5. Adds the following to the DCNM Ansible Collection in $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
+6. uv installs files in $HOME/.local/bin/* (see bottom of this README for specifics)
+7. The setup_repo.bash script sources $HOME/.local/bin/env immediately after uv is installed
 
 - pyproject.toml
   - Used by uv to install dependencies needed for the DCNM Ansible Collection (ansible, requests, pydantic, among others)
@@ -49,4 +51,32 @@ source .venv/bin/activate
 source env/env
 cd tests/unit/modules/dcnm
 pytest -k dcnm_fabric
+```
+
+## Files installed by uv
+
+On MacOS
+
+```bash
+arobel@Allen-M4 ~ % ls -l $HOME/.local/bin
+total 82384
+-rw-r--r--@ 1 arobel  staff       328 Nov  5 16:17 env
+-rw-r--r--@ 1 arobel  staff       165 Nov  5 16:17 env.fish
+lrwxr-xr-x@ 1 arobel  staff        86 Nov  5 16:27 python3.11 -> /Users/arobel/.local/share/uv/python/cpython-3.11.13-macos-aarch64-none/bin/python3.11
+-rwxr-xr-x@ 1 arobel  staff  41831152 Oct 30 12:13 uv
+-rwxr-xr-x@ 1 arobel  staff    336528 Oct 30 12:13 uvx
+arobel@Allen-M4 ~ %
+```
+
+On Ubuntu
+
+```bash
+(dcnm) arobel@glide:~$ ls -l $HOME/.local/bin
+total 52332
+-rw-rw-r-- 1 arobel arobel      328 Aug 17 23:49 env
+-rw-rw-r-- 1 arobel arobel      165 Aug 17 23:49 env.fish
+lrwxrwxrwx 1 arobel arobel       83 Nov  6 01:42 python3.11 -> /home/arobel/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/bin/python3.11
+-rwxr-xr-x 1 arobel arobel 53208480 Oct 30 21:58 uv
+-rwxr-xr-x 1 arobel arobel   362448 Oct 30 21:58 uvx
+(dcnm) arobel@glide:~$
 ```
