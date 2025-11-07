@@ -73,7 +73,6 @@ venv = ".venv"
 jobs = 1
 limit-inference-results = 100
 py-version = "3.11"
-suggestion-mode = true
 fail-under = 10
 
 [tool.pylint.basic]
