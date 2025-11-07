@@ -57,6 +57,7 @@ dev = [
     "mypy>=1.0.0",
     "pylint>=3.3.9",
     "yamllint>=1.37.1",
+    "validate-pyproject[all,store]>=0.24.1",
 ]
 
 [tool.black]
