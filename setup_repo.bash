@@ -30,4 +30,4 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
 uv python install 3.11
 uv venv .venv --python 3.11 --prompt dcnm
-uv sync
+uv sync --no-group dev --no-group test

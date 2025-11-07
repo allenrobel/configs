@@ -42,9 +42,9 @@ source .venv/bin/activate
 source env/env
 ```
 
-By default, setup_repo.bash uses `uv sync` to install runtime dependencies only.
-There are two other sets of dependencies, described below, that are not installed
-by default.
+By default, setup_repo.bash uses `uv sync --no-group dev --no-group test` to install
+base runtime dependencies only. There are two other sets of dependencies, described
+below, that are not installed by default.
 
 ### Dependencies for testing
 
