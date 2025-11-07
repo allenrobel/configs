@@ -12,7 +12,7 @@ and want to understand how to do it.
 
 ## What gets installed
 
-1. uv
+1. uv (via https://astral.sh/uv/install.sh)
 2. Python 3.11 (via uv) the DCNM Collection's currently-recommended Python version
 3. $HOME/repos/ansible/collections/ansible_collections/ansible/netcommon
 4. $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm

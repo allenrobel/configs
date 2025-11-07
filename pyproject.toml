@@ -1,7 +1,32 @@
 [project]
-name = "dcnm"
+name = "ansible-dcnm"
 version = "3.9.1"
-description = "DCNM Ansible Collection"
+description = "The Ansible Cisco Nexus® Dashboard Fabric Controller (NDFC) (formerly Cisco Data Center Network Manager (DCNM)) collection includes modules to help automate common day 2 operations for VXLAN EVPN fabrics."
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Intended Audience :: Telecommunications Industry",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: System :: Networking",
+    "Topic :: System :: Systems Administration",
+    "Framework :: Ansible",
+]
+maintainers = [
+    {name = "Miguel Corona"},
+    {name = "Charly Coueffe"},
+    {name = "Neil John"},
+    {name = "M J Mallik"},
+    {name = "Praveen Kumar R"},
+    {name = "Akshayanat C S"},
+    {name = "Sivakami Sivaraman"},
+    {name = "Matt Tarkington"},
+    {name = "Mike Wiebe"},
+]
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
@@ -9,6 +34,14 @@ dependencies = [
     "pydantic>=2.11.10",
     "requests>=2.32.5",
 ]
+
+[project.urls]
+Changelog = "https://github.com/CiscoDevNet/ansible-dcnm/blob/develop/CHANGELOG.rst"
+Documentation = "https://github.com/CiscoDevNet/ansible-dcnm/blob/develop/README.md"
+Homepage = "https://github.com/CiscoDevNet/ansible-dcnm"
+Issues = "https://github.com/CiscoDevNet/ansible-dcnm/issues"
+Repository = "https://github.com/CiscoDevNet/ansible-dcnm"
+
 [dependency-groups]
 test = [
     "deepdiff==8.6.1",
