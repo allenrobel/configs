@@ -20,14 +20,20 @@ and want to understand how to do it.
 6. The setup_repo.bash script sources $HOME/.local/bin/env immediately after uv is installed
 7. The following files are added to the DCNM Ansible Collection in $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
 
-- pyproject.toml
+- dcnm/pyproject.toml -> $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm/pyproject.toml
   - Used by uv to install dependencies needed for the DCNM Ansible Collection (ansible, requests, pydantic, among others)
   - Used by VS Code when editing files in the DCNM Ansible Collection
   - Used by the various linters for the DCNM Ansible Collection
-- .venv
+- .venv (created by uv)
   - source this (per below) to enable the virtual environment
-- env/env
+- dcnm/env -> $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm/env/env
   - source this to add environment vars pointing to all the right places
+
+## NOTE
+
+The pyproject.toml file in this repository's root is for local use.
+
+dcnm/pyproject.toml is what gets copied to the DCNM Ansible Collection.
 
 ## Installation and Usage
 
