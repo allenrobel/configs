@@ -1,4 +1,4 @@
-# Install the DCNM Ansible Collection using uv
+# Install and setup the DCNM Ansible Collection using uv
 
 This repository exists because I prefer uv over pip for dependency management,
 and the DCNM Ansible Collection is setup with pip in mind.

@@ -19,8 +19,8 @@ git clone https://github.com/CiscoDevNet/ansible-dcnm.git dcnm
 
 # Copy useful files into the dcnm repository
 mkdir -p $REPO_DCNM/env
-cp $REPO_SETUP/pyproject.toml $REPO_DCNM/pyproject.toml
-cp $REPO_SETUP/env $REPO_DCNM/env/env
+cp $REPO_SETUP/dcnm/pyproject.toml $REPO_DCNM/pyproject.toml
+cp $REPO_SETUP/dcnm/env $REPO_DCNM/env/env
 cd $REPO_DCNM
 
 # Install uv and use to create virtual environment and install
