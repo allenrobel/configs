@@ -1,0 +1,6 @@
+fastjsonschema==2.21.2
+packaging==25.0
+trove-classifiers==2025.9.11.17
+uv==0.9.8
+validate-pyproject==0.24.1
+validate-pyproject-schema-store==2025.11.4

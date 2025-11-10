@@ -42,7 +42,7 @@ mkdir -p $HOME/repos
 cd $HOME/repos
 git clone https://github.com/allenrobel/ansible-dcnm-setup.git
 cd $HOME/ansible-dcnm-setup
-./setup_repo.bash
+./setup_dcnm_repo.bash
 cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
 source .venv/bin/activate
 source env/env
