@@ -15,18 +15,18 @@ and want to understand how to do it.
 1. uv (via https://astral.sh/uv/install.sh)
 2. Python 3.11 (via uv) the DCNM Collection's currently-recommended Python version
 3. $HOME/repos/ansible/collections/ansible_collections/ansible/netcommon
-4. $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
+4. $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
 5. uv installs files in $HOME/.local/bin/* (see bottom of this README for specifics)
-6. The setup_repo.bash script sources $HOME/.local/bin/env immediately after uv is installed
-7. The following files are added to the DCNM Ansible Collection in $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm
+6. The setup_dcnm_repo.bash script sources $HOME/.local/bin/env immediately after uv is installed
+7. The following files are added to the DCNM Ansible Collection in $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
 
-- dcnm/pyproject.toml -> $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm/pyproject.toml
+- dcnm/pyproject.toml -> $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm/pyproject.toml
   - Used by uv to install dependencies needed for the DCNM Ansible Collection (ansible, requests, pydantic, among others)
   - Used by VS Code when editing files in the DCNM Ansible Collection
   - Used by the various linters for the DCNM Ansible Collection
 - .venv (created by uv)
   - source this (per below) to enable the virtual environment
-- dcnm/env -> $HOME/repos/ansible/collections/ansible/collections/cisco/dcnm/env/env
+- dcnm/env -> $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm/env/env
   - source this to add environment vars pointing to all the right places
 
 ## NOTE
@@ -37,20 +37,79 @@ dcnm/pyproject.toml is what gets copied to the DCNM Ansible Collection.
 
 ## Installation and Usage
 
+### Basic Installation
+
 ```bash
 mkdir -p $HOME/repos
 cd $HOME/repos
 git clone https://github.com/allenrobel/ansible-dcnm-setup.git
-cd $HOME/ansible-dcnm-setup
+cd ansible-dcnm-setup
 ./setup_dcnm_repo.bash
 cd $HOME/repos/ansible/collections/ansible_collections/cisco/dcnm
 source .venv/bin/activate
 source env/env
 ```
 
-By default, setup_repo.bash uses `uv sync --no-group dev --no-group test` to install
+By default, setup_dcnm_repo.bash uses `uv sync --no-group dev --no-group test` to install
 base runtime dependencies only. There are two other sets of dependencies, described
 below, that are not installed by default.
+
+### Command-Line Options
+
+The setup script now supports several options for flexibility:
+
+```bash
+./setup_dcnm_repo.bash --help              # Show all available options
+./setup_dcnm_repo.bash --dry-run           # Preview what would be done without making changes
+./setup_dcnm_repo.bash --verbose           # Show detailed debug output
+./setup_dcnm_repo.bash --skip-clone        # Skip cloning repositories (useful for updates)
+./setup_dcnm_repo.bash --skip-uv-install   # Skip installing uv (if already installed)
+./setup_dcnm_repo.bash --skip-python-install  # Skip installing Python
+./setup_dcnm_repo.bash --skip-venv         # Skip creating virtual environment
+./setup_dcnm_repo.bash --skip-deps         # Skip installing dependencies
+```
+
+### Environment Variable Configuration
+
+You can customize installation paths and Python version using environment variables:
+
+```bash
+# Use Python 3.12 instead of 3.11
+DCNM_PYTHON_VERSION=3.12 ./setup_dcnm_repo.bash
+
+# Install to a custom location
+DCNM_REPOS_HOME=/custom/path/repos ./setup_dcnm_repo.bash
+
+# Customize Ansible home directory
+DCNM_ANSIBLE_HOME=/custom/ansible ./setup_dcnm_repo.bash
+```
+
+### Updating an Existing Installation
+
+If you've already installed the DCNM Collection and just want to update configuration files
+or dependencies:
+
+```bash
+cd $HOME/repos/ansible-dcnm-setup
+./setup_dcnm_repo.bash --skip-clone --skip-uv-install --skip-python-install --skip-venv
+```
+
+This will:
+- Update pyproject.toml and env files from this repository
+- Update dependencies to match the current configuration
+
+### Dry Run Mode
+
+To see what the script would do without making any changes:
+
+```bash
+./setup_dcnm_repo.bash --dry-run
+```
+
+This is useful for:
+- Understanding what the script does before running it
+- Verifying the installation paths are correct
+- Troubleshooting issues
 
 ### Dependencies for testing
 
@@ -62,7 +121,7 @@ source .venv/bin/activate
 uv sync --group test
 ```
 
-### Dependencies use for development
+### Dependencies used for development
 
 If you want to run the various linters used by the DCNM Ansible Collection e.g.
 `mypy`, `black`, `isort`, `pylint`, etc, install the dev group, per below.
