@@ -95,6 +95,7 @@ cd $HOME/repos/ansible-dcnm-setup
 ```
 
 This will:
+
 - Update pyproject.toml and env files from this repository
 - Update dependencies to match the current configuration
 
@@ -107,6 +108,7 @@ To see what the script would do without making any changes:
 ```
 
 This is useful for:
+
 - Understanding what the script does before running it
 - Verifying the installation paths are correct
 - Troubleshooting issues
